@@ -7,7 +7,7 @@ class Node{                             // tao cac node
 
 public class LinkedList {
     Node head = null;                   // dau danh sach
-    Node tail = null;                   // cuoi
+    Node tail = null;                   // cuoi danh sach
 
     void addFirst(int x) {              // them X vao dau danh sach
         Node p = new Node();            // tao ra 1 node moi
@@ -15,7 +15,6 @@ public class LinkedList {
         p.next = null;
         if (head == null)               // ds rong
             head = tail = p;
-
         else                            // ds ko rong
         {
             p.next = head;
@@ -54,7 +53,7 @@ public class LinkedList {
         Node p = head;
         while(p != null){
             vt++;
-            if (p.data ==x)
+            if (p.data == x)
                 return vt;
             p = p.next;
 

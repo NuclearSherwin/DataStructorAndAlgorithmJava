@@ -30,13 +30,13 @@ public class DSSV {
 
 
     void addFirst(SV x) {
-        Node p = new Node();            // tao ra 1 node moi
+        Node p = new Node();            // create a new node
         p.data = x;
         p.next = null;
-        if (head == null)               // ds rong
+        if (head == null)               // null list
             head = tail = p;
 
-        else                            // ds ko rong
+        else                            // not null list
         {
             p.next = head;
             head = p;
@@ -51,8 +51,8 @@ public class DSSV {
         Node p = head;
         System.out.println("ID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
         while(p!= null){
-            System.out.printf("%8s\t%12s\t", p.data.ID, p.data.Name);
-            System.out.printf("%10s\t%8s\t", p.data.Phone, p.data.Clas);
+            System.out.printf("%2s\t%8s\t", p.data.ID, p.data.Name);
+            System.out.printf("%8s\t%14s\t%12s", p.data.Phone, p.data.Clas, p.data.Address);
             System.out.println();
             p = p.next;
         }
