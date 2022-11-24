@@ -1,6 +1,5 @@
 package P3;
 
-import javax.lang.model.element.Name;
 import java.util.Scanner;
 
 class SV{
@@ -13,8 +12,6 @@ class SV{
         this.Phone = Phone;
         this.Clas = Clas;
     }
-
-
 }
 
 class Node {            /// data ls 1 sv
@@ -55,39 +52,64 @@ public class DSSV {
 
     void Nhap() {
         String id, name, address, phone, clas;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Id: ");
-        id = sc.nextLine();
-        System.out.println("Enter Name: ");
-        name = sc.nextLine();
-        System.out.println("Enter Address: ");
-        address = sc.nextLine();
-        System.out.println("Enter Phone: ");
-        phone = sc.nextLine();
-        System.out.println("Enter Class: ");
-        clas = sc.nextLine();
+        int dung = 0;
 
-        SV x = new SV(id, name, address, phone, clas);             // tao mot sv x
-        addLast(x);                                                // add sv to at the end of the LIST
+        Scanner sc = new Scanner(System.in);
+        while (dung == 0) {
+            System.out.println("Enter Id: ");
+            id = sc.nextLine();
+            System.out.println("Enter Name: ");
+            name = sc.nextLine();
+            System.out.println("Enter Address: ");
+            address = sc.nextLine();
+            System.out.println("Enter Phone: ");
+            phone = sc.nextLine();
+            System.out.println("Enter Class: ");
+            clas = sc.nextLine();
+            SV x = new SV(id, name, address, phone, clas);             // tao mot sv x
+            addLast(x);                                                // add sv to at the end of the LIST also you can use addFirst
+            System.out.println("Stop? (1/0) | 0 to continue, 1 to stop");
+            dung = sc.nextInt();
+            sc.nextLine();
+        }
+    }
+
+    void TiemID(String id) {
+        Node p = head;
+        System.out.println("\tID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
+        while(p != null) {
+            if (p.data.ID.equalsIgnoreCase(id))
+            {
+                System.out.printf("%6s\t%10s", p.data.ID, p.data.Name);
+                System.out.printf("\t%14s\t%14s\t%14s", p.data.Phone, p.data.Clas, p.data.Address);
+                break;
+            }
+        }
+        p = p.next;
+    }
+
+    void TiemTen(String inputName) {                           // search by name
+
     }
 
     void InDs(){
         Node p = head;
-        System.out.println("ID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
+        System.out.println("\tID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
         while(p!= null){
-            System.out.printf("%2s\t%8s\t", p.data.ID, p.data.Name);
-            System.out.printf("%8s\t%14s\t%12s", p.data.Phone, p.data.Clas, p.data.Address);
+            System.out.printf("%6s\t%10s", p.data.ID, p.data.Name);
+            System.out.printf("\t%14s\t%14s\t%14s", p.data.Phone, p.data.Clas, p.data.Address);
             System.out.println();
             p = p.next;
         }
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         DSSV DS = new DSSV();
-        SV s1 = new SV("GCD201883", "Paika", "NY", "123", "GCD1001");
-        DS.addFirst(s1);
-        SV s2 = new SV("GCD201883", "Phong", "NY", "123", "GCD1001");
-        DS.addFirst(s2);
+        DS.Nhap();
         DS.InDs();
+        System.out.println("Enter id of std you want to find: ");
+        String id = sc.nextLine();
+        DS.TiemID(id);
     }
 }
