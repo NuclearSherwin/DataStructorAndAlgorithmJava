@@ -2,9 +2,12 @@ package P3;
 
 import java.util.Scanner;
 
-class SV{
+class SV {
     public String ID, Name, Address, Phone, Clas;
-    public SV() {}
+
+    public SV() {
+    }
+
     public SV(String ID, String Name, String Address, String Phone, String Clas) {
         this.ID = ID;
         this.Name = Name;
@@ -74,28 +77,35 @@ public class DSSV {
         }
     }
 
-    void TiemID(String id) {
+    void TimId(String id) {
         Node p = head;
         System.out.println("\tID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
-        while(p != null) {
-            if (p.data.ID.equalsIgnoreCase(id))
-            {
+        while (p != null) {
+            if (id.compareToIgnoreCase(p.data.ID) == 0) {
                 System.out.printf("%6s\t%10s", p.data.ID, p.data.Name);
                 System.out.printf("\t%14s\t%14s\t%14s", p.data.Phone, p.data.Clas, p.data.Address);
-                break;
             }
+            p = p.next;
         }
-        p = p.next;
     }
 
-    void TiemTen(String inputName) {                           // search by name
-
-    }
-
-    void InDs(){
+    void TimTen(String inputName) {                           // search by name
         Node p = head;
         System.out.println("\tID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
-        while(p!= null){
+        while (p != null) {
+            if (inputName.compareToIgnoreCase(p.data.Name) == 0) {
+                System.out.printf("%6s\t%10s", p.data.ID, p.data.Name);
+                System.out.printf("\t%14s\t%14s\t%14s", p.data.Phone, p.data.Clas, p.data.Address);
+            }
+            p = p.next;
+        }
+
+    }
+
+    void InDs() {
+        Node p = head;
+        System.out.println("\tID\t\t\tName\t\t\tPhone\t\t\tClass\t\t\tAddress");
+        while (p != null) {
             System.out.printf("%6s\t%10s", p.data.ID, p.data.Name);
             System.out.printf("\t%14s\t%14s\t%14s", p.data.Phone, p.data.Clas, p.data.Address);
             System.out.println();
@@ -108,8 +118,8 @@ public class DSSV {
         DSSV DS = new DSSV();
         DS.Nhap();
         DS.InDs();
-        System.out.println("Enter id of std you want to find: ");
-        String id = sc.nextLine();
-        DS.TiemID(id);
+        System.out.println("Enter name of std you want to find: ");
+        String name = sc.nextLine();
+        DS.TimTen(name);
     }
 }
