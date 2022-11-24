@@ -1,6 +1,7 @@
 package P3;
 
 import javax.lang.model.element.Name;
+import java.util.Scanner;
 
 class SV{
     public String ID, Name, Address, Phone, Clas;
@@ -12,8 +13,6 @@ class SV{
         this.Phone = Phone;
         this.Clas = Clas;
     }
-
-
 
 
 }
@@ -35,16 +34,41 @@ public class DSSV {
         p.next = null;
         if (head == null)               // null list
             head = tail = p;
-
         else                            // not null list
         {
-            p.next = head;
+            p.next = head;              // neu ds rong thi p la node dau va cung la node cuoi
             head = p;
         }
     }
 
-    void addLast() {
+    void addLast(SV x) {
+        Node p = new Node();
+        p.data = x;
+        p.next = null;
+        if (head == null)
+            head = tail = p;
+        else {
+            tail.next = p;
+            tail = p;
+        }
+    }
 
+    void Nhap() {
+        String id, name, address, phone, clas;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Id: ");
+        id = sc.nextLine();
+        System.out.println("Enter Name: ");
+        name = sc.nextLine();
+        System.out.println("Enter Address: ");
+        address = sc.nextLine();
+        System.out.println("Enter Phone: ");
+        phone = sc.nextLine();
+        System.out.println("Enter Class: ");
+        clas = sc.nextLine();
+
+        SV x = new SV(id, name, address, phone, clas);             // tao mot sv x
+        addLast(x);                                                // add sv to at the end of the LIST
     }
 
     void InDs(){
