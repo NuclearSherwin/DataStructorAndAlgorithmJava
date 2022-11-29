@@ -113,6 +113,10 @@ public class DSSV {
         }
     }
 
+    void delFirst() {
+
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DSSV DS = new DSSV();

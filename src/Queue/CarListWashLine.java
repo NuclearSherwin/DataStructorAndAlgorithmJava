@@ -25,9 +25,6 @@ class QueueList {
     void releasedCar(Car car) {
         car = Q[front];
     }
-
-
-
 }
 
 
