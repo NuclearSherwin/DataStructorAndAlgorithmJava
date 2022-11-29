@@ -104,6 +104,18 @@ public class Array {
         }
     }
 
+    void insertArr() {
+        for (int i = 1; i < intArr.length; i++) {
+            int j = i;
+            int x = intArr[i];
+            while(j > 0 && intArr[j - 1] > x){
+                intArr[j] = intArr[j -1];
+                j--;
+            }
+            intArr[j] = x;
+        }
+    }
+
     public static void main(String[] args) {
         // call object
         Scanner sc = new Scanner(System.in);
@@ -137,7 +149,7 @@ public class Array {
         runTime = end - start;
 
         arr.printArr();
-        System.out.println("Time after selection: " + runTime);
+        System.out.println("Time after quick soft: " + runTime);
 
         // Selection
         start = System.currentTimeMillis();
@@ -149,6 +161,16 @@ public class Array {
         System.out.println("Time after selection: " + runTime);
 
 
+        System.out.println("KB: " + (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024);
+
+        // Chen
+        start = System.currentTimeMillis();
+        arr.insertArr();
+        end = System.currentTimeMillis();
+        runTime = end - start;
+
+        arr.printArr();
+        System.out.println("Time after insert: " + runTime);
         System.out.println("KB: " + (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024);
     }
 }
