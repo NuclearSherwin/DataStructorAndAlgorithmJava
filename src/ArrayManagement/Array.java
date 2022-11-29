@@ -118,6 +118,7 @@ public class Array {
 
         arr.printArr();
 //        System.out.println("Time after selection: " + runTime);
+        System.out.println("KB: " + (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024);
     }
 }
 
