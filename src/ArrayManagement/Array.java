@@ -92,7 +92,7 @@ public class Array {
             int down = right;
             do {
                 while(intArr[up] < pivot) up++;
-                while(intArr[down] >= pivot) down--;
+                while(intArr[down] > pivot) down--;
                 if (up <= down){
                     int t = intArr[up]; intArr[up] = intArr[down]; intArr[down] = t;
                     up++;
@@ -129,14 +129,26 @@ public class Array {
 //        int searchValue = sc.nextInt();
 //        arr.searchElement(searchValue);
 
+        // quick soft
         double start, end, runTime;
+        start = System.currentTimeMillis();
+        arr.QuickSort(0, arr.intArr.length - 1);
+        end = System.currentTimeMillis();
+        runTime = end - start;
+
+        arr.printArr();
+        System.out.println("Time after selection: " + runTime);
+
+        // Selection
         start = System.currentTimeMillis();
         arr.Selection();
         end = System.currentTimeMillis();
         runTime = end - start;
 
         arr.printArr();
-//        System.out.println("Time after selection: " + runTime);
+        System.out.println("Time after selection: " + runTime);
+
+
         System.out.println("KB: " + (double) (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024);
     }
 }
