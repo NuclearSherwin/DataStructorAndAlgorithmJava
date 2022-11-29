@@ -85,6 +85,25 @@ public class Array {
         }
     }
 
+    void QuickSort(int left, int right) {
+        if (left < right) {
+            int pivot = intArr[(left + right) / 2];
+            int up = left;
+            int down = right;
+            do {
+                while(intArr[up] < pivot) up++;
+                while(intArr[down] >= pivot) down--;
+                if (up <= down){
+                    int t = intArr[up]; intArr[up] = intArr[down]; intArr[down] = t;
+                    up++;
+                    down--;
+                }
+            } while(up <= down);
+            QuickSort(left, down);
+            QuickSort(up, right);
+        }
+    }
+
     public static void main(String[] args) {
         // call object
         Scanner sc = new Scanner(System.in);
