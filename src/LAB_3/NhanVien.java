@@ -86,6 +86,7 @@ class QLNV {
 
 //    Tim NV theo ten
     void TimTen() {
+        System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println("Enter name of employee: ");
         String name = sc.nextLine();
         for(int i=0;i<=so_luong;i++){
@@ -97,6 +98,7 @@ class QLNV {
     }
 
     void TimID() {
+        System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println("Enter ID of employee: ");
         String id = sc.nextLine();
         for (int i = 0; i < DSNV.length; i++) {
@@ -112,6 +114,7 @@ class QLNV {
     }
 
     void softByName() {
+        System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println("List employees");
         System.out.println("ID\t\t Name\t Age \t Salary\t Commision");
         String temp;
@@ -134,8 +137,23 @@ class QLNV {
         }
     }
 
+    void Soft2() {
+        for (int i = 0; i < so_luong; i++) {
+            int min = 1;
+            for (int j = i; j < so_luong; j++) {
+                if (DSNV[j].name.compareToIgnoreCase(DSNV[min].name) < 0)
+                    min = j;
+            }
+
+            NhanVien x = DSNV[i];
+            DSNV[i] = DSNV[min];
+            DSNV[min] = x;
+        }
+    }
+
 // print employee don't have the commission
     void printENoCommission() {
+        System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println("List employees don't have commission: ");
         System.out.println("ID\t\t Name\t Age \t Salary\t Commision");
         for(int i=0;i<=so_luong;i++){
@@ -147,17 +165,31 @@ class QLNV {
         }
     }
 
+    void updateCommission(String id, float newCommission) {
+        for (int i = 0;  i < so_luong; i++) {
+            if (DSNV[i].id.compareToIgnoreCase(id) == 0)
+                DSNV[i].commission = newCommission;
+        }
+    }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         QLNV qlnv = new QLNV();
+
         qlnv.Nhap();
         qlnv.printAll();
-//        qlnv.TimTen();
+        qlnv.TimTen();
         qlnv.softByName();
         qlnv.printENoCommission();
-        System.out.println("-----------------Quan ly nhan vien------------------");
+
         System.out.println();
 
+        System.out.println("ID to update");
+        String id = sc.nextLine();
+        System.out.println("New commission");
+        float newCommission = sc.nextFloat();
+        qlnv.updateCommission(id, newCommission);
+        qlnv.printAll();
     }
 }
 
