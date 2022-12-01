@@ -114,10 +114,28 @@ class QLNV {
     void softByName() {
         System.out.println("List employees");
         System.out.println("ID\t\t Name\t Age \t Salary\t Commision");
+        String temp;
         for(int i=0;i<=so_luong;i++){
-            NhanVien nv=DSNV[i];
-            System.out.printf("%5s %8s  %2d ",nv.id,nv.name,nv.age);
-            System.out.printf("%6.2f %6.2f\n",nv.salary,nv.commission);
+            for (int j = i + 1; j <= so_luong; j++) {
+                if (DSNV[i].name.compareTo(DSNV[j].name) > 0) {
+                    // swapping
+                    temp = DSNV[i].name;
+                    DSNV[i].name = DSNV[j].name;
+                    DSNV[j].name = temp;
+                }
+            }
+
+
+
+//            NhanVien nv=DSNV[i];
+//            System.out.printf("%5s %8s  %2d ",nv.id,nv.name,nv.age);
+//            System.out.printf("%6.2f %6.2f\n",nv.salary,nv.commission);
+        }
+        System.out.println(
+                "The names in alphabetical order are: ");
+
+        for (int i = 0; i <= so_luong; i++) {
+            System.out.println("Sorted name : " + DSNV[i].name);
         }
     }
 
@@ -127,7 +145,8 @@ class QLNV {
         QLNV qlnv = new QLNV();
         qlnv.Nhap();
         qlnv.printAll();
-        qlnv.TimTen();
+//        qlnv.TimTen();
+        qlnv.softByName();
         System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println();
 
