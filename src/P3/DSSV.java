@@ -125,5 +125,8 @@ public class DSSV {
         System.out.println("Enter name of std you want to find: ");
         String name = sc.nextLine();
         DS.TimTen(name);
+        System.out.println("Enter ID of student you want to find: ");
+        String id = sc.nextLine();
+        DS.TimId(id);
     }
 }
