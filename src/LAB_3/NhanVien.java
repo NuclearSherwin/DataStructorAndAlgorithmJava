@@ -125,11 +125,6 @@ class QLNV {
                 }
             }
 
-
-
-//            NhanVien nv=DSNV[i];
-//            System.out.printf("%5s %8s  %2d ",nv.id,nv.name,nv.age);
-//            System.out.printf("%6.2f %6.2f\n",nv.salary,nv.commission);
         }
         System.out.println(
                 "The names in alphabetical order are: ");
@@ -139,6 +134,18 @@ class QLNV {
         }
     }
 
+// print employee don't have the commission
+    void printENoCommission() {
+        System.out.println("List employees don't have commission: ");
+        System.out.println("ID\t\t Name\t Age \t Salary\t Commision");
+        for(int i=0;i<=so_luong;i++){
+            NhanVien nv=DSNV[i];
+            if (nv.commission == 0) {
+                System.out.printf("%5s %8s  %2d ",nv.id,nv.name,nv.age);
+                System.out.printf("%6.2f %6.2f\n",nv.salary,nv.commission);
+            }
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -147,6 +154,7 @@ class QLNV {
         qlnv.printAll();
 //        qlnv.TimTen();
         qlnv.softByName();
+        qlnv.printENoCommission();
         System.out.println("-----------------Quan ly nhan vien------------------");
         System.out.println();
 
