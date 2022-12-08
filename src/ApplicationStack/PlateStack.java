@@ -3,19 +3,11 @@ package ApplicationStack;
 public class PlateStack {
     private String arrPlate[] = new String[10];
     private int top = -1;
-    private int capacity;
 
 
 
     // push plate to the top of store plate
     public void push(String plate) {
-//        if (isFull()) {
-//            System.out.println("Plate full!");
-//            // terminal the problem
-//            System.exit(1);
-//        }
-
-//        System.out.println("Push plate " + plate);
         top = top + 1;
         arrPlate[top] = plate;
     }
@@ -37,9 +29,9 @@ public class PlateStack {
     }
 
     // check plate if stack of plate is full
-    public boolean isFull() {
-        return top == capacity - 1;
-    }
+//    public boolean isFull() {
+//        return top == capacity - 1;
+//    }
 
     // show all plates in the stack
     public void printStack() {
