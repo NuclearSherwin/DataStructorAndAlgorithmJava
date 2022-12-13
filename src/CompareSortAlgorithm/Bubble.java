@@ -37,8 +37,8 @@ public class Bubble {
 
     public static void main(String[] args) {
         Bubble bubbleSoft = new Bubble();
-        // Create array of 1000 ints
-        int[] intArr = new int[1000];
+        // Create array of 10000 ints
+        int[] intArr = new int[10000];
         System.out.println("Fill to array: ");
         bubbleSoft.fillArr(intArr);
         System.out.println("Before sort:");

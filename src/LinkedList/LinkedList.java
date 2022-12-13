@@ -65,9 +65,13 @@ public class LinkedList {
         head = head.next;
     }
 
-//    void delLast {                  // xoa cuoi
-//
-//    }
+    void delLast(){
+        Node p=head;
+        while(p.next.next!=null){
+            p=p.next;
+        }
+        p.next=null;
+    }
     void InDs(){
         Node p = head;
         while(p != null) {
@@ -82,11 +86,13 @@ public class LinkedList {
         L.addFirst(1);  L.addFirst(2);  L.addFirst(3);
         L.InDs();
         L.addLast(8);
-        System.out.println("DS sau khi add last: ");// 3218
+        System.out.println("LinkedList after add last: ");// 3218
         L.InDs();
         L.delFirst();  // 218
         System.out.println("DS sau khi delete first: ");
         L.InDs();
+        L.delLast();
+        System.out.println("DS");
 
         // Count the number of elements
         System.out.println("------------------------------------------");

@@ -114,19 +114,44 @@ public class DSSV {
     }
 
     void delFirst() {
+        head = head.next;
+    }
 
+    void delLast() {
+        Node p = head;
+        while(p.next.next!=null){
+            p = p.next;
+        }
+        p.next = null;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DSSV DS = new DSSV();
+        SV st1 = new SV("15", "Tien", "hue", "0215255","GCD1001");
+        SV st2 = new SV("16", "Phong", "hue", "0215255","GCD1001");
         DS.Nhap();
+        System.out.println();
+        DS.addFirst(st1);
+        DS.addLast(st2);
         DS.InDs();
+        System.out.println();
         System.out.println("Enter name of std you want to find: ");
         String name = sc.nextLine();
         DS.TimTen(name);
+        System.out.println();
         System.out.println("Enter ID of student you want to find: ");
         String id = sc.nextLine();
         DS.TimId(id);
+        System.out.println();
+
+        System.out.println("The student list after delete first");
+        DS.delFirst();
+        DS.InDs();
+        System.out.println();
+        System.out.println("The student list after delete last");
+        DS.delLast();
+        DS.InDs();
+        System.out.println();
     }
 }
