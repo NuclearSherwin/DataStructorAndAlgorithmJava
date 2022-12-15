@@ -30,7 +30,7 @@ public class Big_O_notation {
     }
 
     // drop the constants
-    void printAllItemsTw    ice(int arr[], int size) {
+    void printAllItemsTwice(int arr[], int size) {
         for (int i = 0; i < size; i++) {
             System.out.printf("%d\n", arr[i]);
         }
