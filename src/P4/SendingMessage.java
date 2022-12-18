@@ -14,6 +14,7 @@ public class SendingMessage {
     //TODO Step 4 While Q not empty then read 1 element from Q (x = Q.dequeue()) and put into S2. (S2[j] = x), j++
     //TODO Step 5 Checking If i >= S1.length() then implement step 4, if not then implement step 1
 
+
     int MAX = 5;
     String Q[] = new String[5];
 
@@ -38,7 +39,7 @@ public class SendingMessage {
     }
 
     boolean isQueueFull() {
-        if (front == MAX -1)
+        if (front == MAX - 1)
             return true;
         else
             return false;
