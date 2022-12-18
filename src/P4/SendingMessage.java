@@ -56,7 +56,7 @@ public class SendingMessage {
                 System.out.println();
                 String x = sc.nextLine();
                 enqueue(x);
-                System.out.println("Current top is: " + peak());
+                System.out.println("Current front is: " + peak());
 
                 // send to S2
                 deliverMessageToS2();
