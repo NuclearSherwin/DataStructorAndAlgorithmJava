@@ -46,10 +46,9 @@ public class SendMessage {
     }
 
     String Transfer(String S1) {
-        String S2;
+        String S2 = "";
         int i = 0;
         int count = 0;
-        S2 = "";
         char y;
         if (S1.length() == 0) {
             System.out.println("Empty string! Please input again!");
@@ -57,7 +56,7 @@ public class SendMessage {
         }
         else if (S1.length() > 250)
         {
-            System.out.println("String over 250 charaters. Please enter again");
+            System.out.println("String over 250 characters. Please enter again");
             return "";
         }
         else {
@@ -99,11 +98,10 @@ public class SendMessage {
         S1 = sc.nextLine();
         long start, end, time;
         start = System.currentTimeMillis();
-        String s = Q.Transfer(S1);
-        System.out.println("S2: " + s);
+        String S2 = Q.Transfer(S1);
+        System.out.println("S2: " + S2);
         end = System.currentTimeMillis();
         time = end - start;
-        System.out.println("Executed time: ");
-        System.out.println("\n" + time + "millisecond");
+        System.out.println("Executed time: " + time + " millisecond");
     }
 }
